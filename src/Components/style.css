@@ -1,0 +1,28 @@
+@import url("~@blueprintjs/core/lib/css/blueprint.css");
+@import url("~@blueprintjs/select/lib/css/blueprint-select.css");
+
+
+.charts-area {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.charts-dropdowns {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.charts-dropdown {
+    width: 33%
+}
+
+.new-switch {
+    margin-top: 5px;
+    width: 33%
+}
+
+.charts-button {
+    width: 100%
+}
