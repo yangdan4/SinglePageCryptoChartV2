@@ -8,7 +8,7 @@
     gap: 10px;
 }
 
-.charts-dropdowns {
+.charts-selectors {
     display: flex;
     flex-direction: row;
     gap: 10px;
@@ -18,7 +18,7 @@
     width: 33%
 }
 
-.new-switch {
+.charts-switch {
     margin-top: 5px;
     width: 33%
 }

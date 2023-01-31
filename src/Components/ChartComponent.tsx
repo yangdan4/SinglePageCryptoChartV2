@@ -5,8 +5,8 @@ import { ItemRenderer, ItemPredicate,Select2 } from "@blueprintjs/select";
 import { MenuItem2 } from "@blueprintjs/popover2";
 import { Button, Spinner, Switch } from "@blueprintjs/core";
 import Chart from "react-apexcharts";
-import "./style.css"
 
+import "./style.css"
 import "@blueprintjs/core/lib/css/blueprint.css";
 import "@blueprintjs/icons/lib/css/blueprint-icons.css";
 import "@blueprintjs/select/lib/css/blueprint-select.css";
@@ -111,14 +111,16 @@ export function ChartComponent() {
 			.then(() => getRatesFiltered())
 			.finally(() => setIsLoaded(true))
 	}, []);
+
 	useEffect(() => {
 		isLoaded && selectedSpotType !== "" && setDataPoints(!filtered ? spotRates.current[selectedSpotType][selectedGranularity]
 			: spotRatesFiltered.current[selectedSpotType][selectedGranularity])
 	}, [selectedSpotType, selectedGranularity, filtered]);
+
 	return (
 		<div className="charts-area">
 			<h1>{!isLoaded ?? <Spinner/>}</h1>
-			<div className="charts-dropdowns">
+			<div className="charts-selectors">
 				<Select2
 					className="charts-dropdown"
 					items={["By Day", "By Week", "By Month"]}
@@ -137,7 +139,7 @@ export function ChartComponent() {
 					<Button className = "charts-button" 
 						disabled={false}>{selectedSpotType === "" ? "Select a Coin" : selectedSpotType}</Button>
 				</Select2>
-				<Switch className = "new-switch" 
+				<Switch className = "charts-switch" 
 					disabled={false}
 					onChange= {() => {
 						setFiltered(!filtered)
@@ -146,6 +148,5 @@ export function ChartComponent() {
 			{selectedSpotType !== "" && selectedGranularity !== "" && <Chart options={options} series={[{
               "data": dataPoints}]} type="candlestick" height={350} />}
 		</div>
-		
 	)
 }
